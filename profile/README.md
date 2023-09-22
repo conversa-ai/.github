@@ -10,9 +10,22 @@ Apart from corpora we also create both dialogue and QA interactive systems in di
 
 We are creating a collection of dialogue corpora in Spanish and co-official languages that is called "Spanish Dialogue Pile". So far, we have worked on the following corpora:
 
-1. ChatSubs which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series. The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in the [repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following paper:
+1. ChatSubs which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series. The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in [our repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following [paper](https://www.sciencedirect.com/science/article/pii/S2352340923006650):
 
 ```
+@article{KHARITONOVA2023109565,
+    title = {ChatSubs: A dataset of dialogues in Spanish, Catalan, Basque and Galician extracted from movie subtitles for developing advanced conversational models},
+    journal = {Data in Brief},
+    volume = {50},
+    pages = {109565},
+    year = {2023},
+    issn = {2352-3409},
+    doi = {https://doi.org/10.1016/j.dib.2023.109565},
+    url = {https://www.sciencedirect.com/science/article/pii/S2352340923006650},
+    author = {Ksenia Kharitonova and Zoraida Callejas and David Pérez-Fernández and Asier Gutiérrez-Fandiño and David Griol},
+    keywords = {Dialogue, Conversation, Chatbots, Conversational AI, Speech, Natural language processing},
+    abstract = {The ChatSubs dataset [5] contains dialogue data in Spanish and three of Spain's co-official languages (Catalan, Basque, and Galician). It has been obtained from OpenSubtitles, from which we have gathered the movie subtitles in our languages of interest and processed them to generate clearly segmented dialogues and their turns. The data processing code is publicly accessible. The result is 206.706 JSON files with more than 20 million dialogues and 96 million turns, which represents one of the biggest dialogue corpus available, as other similar datasets in better resourced languages do not reach 500k dialogues or present less defined conversations. Thus, the ChatSubs dataset is an ideal resource for research teams that are interested in training dialogue models in Spanish, Catalan, Basque, and Galician.}
+}
 ```
 
 2. Usenet-based corpus that represents dialogues extracted from Usenet forums.
