@@ -24,7 +24,6 @@ We are creating a collection of dialogue corpora in Spanish and co-official lang
     url = {https://www.sciencedirect.com/science/article/pii/S2352340923006650},
     author = {Ksenia Kharitonova and Zoraida Callejas and David Pérez-Fernández and Asier Gutiérrez-Fandiño and David Griol},
     keywords = {Dialogue, Conversation, Chatbots, Conversational AI, Speech, Natural language processing},
-    abstract = {The ChatSubs dataset [5] contains dialogue data in Spanish and three of Spain's co-official languages (Catalan, Basque, and Galician). It has been obtained from OpenSubtitles, from which we have gathered the movie subtitles in our languages of interest and processed them to generate clearly segmented dialogues and their turns. The data processing code is publicly accessible. The result is 206.706 JSON files with more than 20 million dialogues and 96 million turns, which represents one of the biggest dialogue corpus available, as other similar datasets in better resourced languages do not reach 500k dialogues or present less defined conversations. Thus, the ChatSubs dataset is an ideal resource for research teams that are interested in training dialogue models in Spanish, Catalan, Basque, and Galician.}
 }
 ```
 
