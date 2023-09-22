@@ -30,7 +30,6 @@ We are creating a collection of dialogue corpora in Spanish and co-official lang
 2. Usenet-based corpus that represents dialogues extracted from Usenet forums.
 3. A corpus derived from dialogues sourced from Reddit discussions.
 4. A corpus based on dialogues taken from various online forums.
-5. A corpus drawn from dialogues found in the proceedings of the European Parliament, based on Europarl data.
 
 We are considering more corpora to come.
 
