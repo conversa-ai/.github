@@ -8,9 +8,9 @@ Apart from corpora we also create both dialogue and QA interactive systems in di
 
 ### Dialogue corpora
 
-We are creating a collection of dialogue corpora in Spanish and co-official languages that is called "Spanish Dialogue Pile". So far, we have worked on the following corpora:
+We are creating a collection of dialogue corpora in Spanish and co-official languages that is called "Spanish Dialogue Pile" soon to be released. 
 
-1. ChatSubs which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series. The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in [our repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following [paper](https://www.sciencedirect.com/science/article/pii/S2352340923006650):
+So far, we released **ChatSubs** which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series (4 Gb). The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in [our repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following [paper](https://www.sciencedirect.com/science/article/pii/S2352340923006650):
 
 ```
 @article{KHARITONOVA2023109565,
@@ -27,10 +27,6 @@ We are creating a collection of dialogue corpora in Spanish and co-official lang
 }
 ```
 
-2. Usenet-based corpus that represents dialogues extracted from Usenet forums.
-3. A corpus derived from dialogues sourced from Reddit discussions.
-4. A corpus based on dialogues taken from various online forums.
-
-We are considering more corpora to come.
+We are also developing the corpora from Reddit discussions, Usenet forums and other online forums.  The final size of the corpus will exceed 30 Gb.
 
 ### Dialogue systems
