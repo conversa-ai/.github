@@ -10,7 +10,7 @@ Apart from corpora we also create both dialogue and QA interactive systems in di
 
 ### Dialogue corpora
 
-We are creating a collection of dialogue corpora in Spanish and co-official languages that is called "Spanish Dialogue Pile" soon to be released. 
+We are creating a collection of dialogue corpora in Spanish and co-official languages that is called **Spanish Dialogue Pile** soon to be released. 
 
 So far, we released **ChatSubs** which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series (4 Gb). The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in [our repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following [paper](https://www.sciencedirect.com/science/article/pii/S2352340923006650):
 
