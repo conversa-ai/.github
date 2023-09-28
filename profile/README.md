@@ -6,6 +6,8 @@ Our objective is to increase the availability of resources and models for conver
 
 Apart from corpora we also create both dialogue and QA interactive systems in diverse domains.
 
+[Project description](https://drive.google.com/file/d/1nTvVLMz9zb7_VBXHkhmNSTrPmEPvPr3t/view?usp=sharing).
+
 ### Dialogue corpora
 
 We are creating a collection of dialogue corpora in Spanish and co-official languages that is called "Spanish Dialogue Pile" soon to be released. 
