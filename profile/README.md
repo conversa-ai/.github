@@ -8,9 +8,11 @@ Apart from corpora we also create both dialogue and QA interactive systems in di
 
 [Project description](https://drive.google.com/file/d/1nTvVLMz9zb7_VBXHkhmNSTrPmEPvPr3t/view?usp=sharing).
 
-### Dialogue corpora
+## Dialogue corpora
 
 We are creating a collection of dialogue corpora in Spanish and co-official languages that is called **Spanish Dialogue Pile** soon to be released. 
+
+### OpenSubtitles
 
 So far, we released **ChatSubs** which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series (4 Gb). The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in [our repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following [paper](https://www.sciencedirect.com/science/article/pii/S2352340923006650):
 
@@ -29,6 +31,25 @@ So far, we released **ChatSubs** which is the dialogue corpora in Spanish and co
 }
 ```
 
-We are also developing the corpora from Reddit discussions, Usenet forums and other online forums.  The final size of the corpus will exceed 30 Gb.
+### Usenet
 
-### Dialogue systems
+We processed the information contained in newsgroups of Usenet, a decentralized network of user-generated content. Out of 279 Spanish-speaking groups we extracted 494,928 dialogues with 1,799,788 turns.
+
+### Forums
+
+For this part of corpus we chose two popular public Spanish forums, [Meneame](https://www.meneame.net/) and [Mediavida](https://www.mediavida.com/). Additionally, we incorporated 62 of the largest Spanish subreddits from [Reddit](https://www.reddit.com/). 
+
+We extracted the following data:
+- 6,796,035 dialogues with 15,185,945 turns from 1,055,796 Reddit posts,
+- 3,192,173 dialogues with 6,270,915 turns from 216,413 Meneame posts,
+- 307,818 dialogues with 683,978 turns from 43,281 Mediavida posts.
+
+### Books
+
+Using [software](https://github.com/ricsinaruto/gutenberg-dialog) from [Czaky et Resky, The Gutenberg dialogue dataset](https://aclanthology.org/2021.eacl-main.11/), we processed the Spanish and Catalan books from the Project Gutenberg internet library. We extracted 64 dialogues with 463 turns for Catalan and 12,801 dialogues with 94,862 turns for Spanish.
+
+### Total 
+
+In total we obtained a corpus of 31,058,130 dialogues and 120,961,102 turns.
+
+## Dialogue systems
