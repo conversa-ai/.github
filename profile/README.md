@@ -33,7 +33,7 @@ So far, we released **ChatSubs** which is the dialogue corpora in Spanish and co
 
 ### Usenet
 
-We processed the information contained in newsgroups of Usenet, a decentralized network of user-generated content. Out of 279 Spanish-speaking groups we extracted 494,928 dialogues with 1,799,788 turns. The code for corpus creation is available at [repository](https://github.com/conversa-ai/process_usenet).
+We processed the information contained in newsgroups of Usenet, a decentralized network of user-generated content. Out of 279 Spanish-speaking groups we extracted 494,928 dialogues with 1,799,788 turns. The code for corpus creation is available at the [repository](https://github.com/conversa-ai/process_usenet).
 
 ### Forums
 
