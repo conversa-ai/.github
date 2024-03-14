@@ -40,9 +40,9 @@ We processed the information contained in newsgroups of Usenet, a decentralized 
 For this part of corpus we chose two popular public Spanish forums, [Meneame](https://www.meneame.net/) and [Mediavida](https://www.mediavida.com/). Additionally, we incorporated 62 of the largest Spanish subreddits from [Reddit](https://www.reddit.com/). 
 
 We extracted the following data:
-- 6,796,035 dialogues with 15,185,945 turns from 1,055,796 Reddit posts,
-- 3,192,173 dialogues with 6,270,915 turns from 216,413 Meneame posts,
-- 307,818 dialogues with 683,978 turns from 43,281 Mediavida posts.
+- 6,796,035 dialogues with 15,185,945 turns from 1,055,796 Reddit posts ([code](https://github.com/conversa-ai/processReddit)),
+- 3,192,173 dialogues with 6,270,915 turns from 216,413 Meneame posts ([code]()),
+- 307,818 dialogues with 683,978 turns from 43,281 Mediavida posts ([code]()).
 
 ### Books
 
