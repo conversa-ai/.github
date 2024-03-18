@@ -16,21 +16,6 @@ We are creating a collection of dialogue corpora in Spanish and co-official lang
 
 So far, we released **ChatSubs** which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series (4 Gb). The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in [our repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following [paper](https://www.sciencedirect.com/science/article/pii/S2352340923006650):
 
-```
-@article{KHARITONOVA2023109565,
-    title = {ChatSubs: A dataset of dialogues in Spanish, Catalan, Basque and Galician extracted from movie subtitles for developing advanced conversational models},
-    journal = {Data in Brief},
-    volume = {50},
-    pages = {109565},
-    year = {2023},
-    issn = {2352-3409},
-    doi = {https://doi.org/10.1016/j.dib.2023.109565},
-    url = {https://www.sciencedirect.com/science/article/pii/S2352340923006650},
-    author = {Ksenia Kharitonova and Zoraida Callejas and David Pérez-Fernández and Asier Gutiérrez-Fandiño and David Griol},
-    keywords = {Dialogue, Conversation, Chatbots, Conversational AI, Speech, Natural language processing},
-}
-```
-
 ### Usenet
 
 We processed the information contained in newsgroups of Usenet, a decentralized network of user-generated content. Out of 279 Spanish-speaking groups we extracted 494,928 dialogues with 1,799,788 turns. The code for corpus creation is available at the [repository](https://github.com/conversa-ai/process_usenet).
@@ -53,6 +38,12 @@ Using [software](https://github.com/ricsinaruto/gutenberg-dialog) from [Czaky et
 In total we obtained a corpus of 31,058,130 dialogues and 120,961,102 turns.
 
 ## Dialogue systems
+
+We created a conversational question answering system based on Clinical Practice Guidelines (CPGs) created by the Aragonese Institute of Health Sciences (IACS) for the benefit of the Spanish National Health System. These guidelines are developed by a team of healthcare experts, and their purpose is to provide medical professionals with recommendations for patient care that are founded on solid scientific research.
+
+We created a system based on Retrieval-Augmented Generation (RAG) with a Large Language Model (LLM) as a reasoning engine. Our approach serves as a step towards addressing the issues of hallucinated and false responses, as it allows developing explainable question answering systems based on trusted medical guidelines content. ([code]())
+
+The system i described in the following [paper](https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2321959).
 
 ## References
 
