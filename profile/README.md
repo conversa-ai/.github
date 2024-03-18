@@ -41,7 +41,7 @@ In total we obtained a corpus of 31,058,130 dialogues and 120,961,102 turns.
 
 We created a conversational question answering system based on Clinical Practice Guidelines (CPGs) created by the Aragonese Institute of Health Sciences (IACS) for the benefit of the Spanish National Health System. These guidelines are developed by a team of healthcare experts, and their purpose is to provide medical professionals with recommendations for patient care that are founded on solid scientific research.
 
-We created a system based on Retrieval-Augmented Generation (RAG) with a Large Language Model (LLM) as a reasoning engine. Our approach serves as a step towards addressing the issues of hallucinated and false responses, as it allows developing explainable question answering systems based on trusted medical guidelines content. ([code]())
+We created a system based on Retrieval-Augmented Generation (RAG) with a Large Language Model (LLM) as a reasoning engine. Our approach serves as a step towards addressing the issues of hallucinated and false responses, as it allows developing explainable question answering systems based on trusted content. ([code]())
 
 The system i described in the following [paper](https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2321959).
 
