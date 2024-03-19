@@ -43,7 +43,7 @@ We created a conversational question answering system based on Clinical Practice
 
 We created a system based on Retrieval-Augmented Generation (RAG) with a Large Language Model (LLM) as a reasoning engine. Our approach serves as a step towards addressing the issues of hallucinated and false responses, as it allows developing explainable question answering systems based on trusted content. ([code]())
 
-The system i described in the following [paper](https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2321959).
+The system is described in the following [paper](https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2321959).
 
 ## References
 
