@@ -68,7 +68,7 @@ The ultimate goal is to optimize these models to handle contextually appropriate
 
 ## Dialogue systems
 
-We created a conversational question answering system based on Clinical Practice Guidelines (CPGs) created by the Aragonese Institute of Health Sciences (IACS) for the benefit of the Spanish National Health System. These guidelines are developed by a team of healthcare experts, and their purpose is to provide medical professionals with recommendations for patient care that are founded on solid scientific research.
+We are also actively working on finalizing the development of a robust framework to fine-tune the models to the conversational corpus, optimizing them for various applications that demonstrate their potential. As a key demonstrator of our project, we have developed a question-and-answer system to provide accurate and contextually relevant responses related to clinical guidelines provided by the Aragonese Institute of Health Sciences.
 
 We created a system based on Retrieval-Augmented Generation (RAG) with a Large Language Model (LLM) as a reasoning engine. Our approach serves as a step towards addressing the issues of hallucinated and false responses, as it allows developing explainable question answering systems based on trusted content. ([code]())
 
