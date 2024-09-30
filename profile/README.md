@@ -2,7 +2,7 @@
 
 Access to information is increasingly conversational. However, there is a lack of conversational AI training material for Spanish and the co-official languages, in general and for specific key tasks and domains. Additional barriers include steep computational costs for training conversational agents and challenging inference times, and a lack of guarantees for the safety and transparency of conversational systems. The CONVERSA project (TED2021-132470B-I00) constitutes a step forward to democratize access to conversational AI through computation and data efficient development and testing of innovative, open and safe resources in Spanish and co-official languages. The duration of the project is from December 2022 to November 2024.
 
-Our objective is to increase the availability of resources and models for conversational AI in Spanish, as well as the co-official languages of Spain: Basque, Catalan, and Galician. To achieve this, we are developing a comprehensive collection of dialogue datasets and offering tools that allow for the reproducible creation of corpora for each segment of the dataset. 
+Our objective is to increase the availability of resources and models for conversational AI in Spanish, as well as the co-official languages of Spain: Basque, Catalan, and Galician. To achieve this, we have compiled and processed a large-scale conversational corpus containing tens of millions of dialogues in Spanish, Catalan, Basque, and Galician. This corpus represents a valuable resource for the scientific community, as no other comparable resource exists in terms of size, linguistic diversity, and quality.
 
 Apart from corpora we also create both dialogue and QA interactive systems in diverse domains.
 
@@ -22,12 +22,12 @@ We processed the information contained in newsgroups of Usenet, a decentralized 
 
 ### Forums
 
-For this part of corpus we chose two popular public Spanish forums, [Meneame](https://www.meneame.net/) and [Mediavida](https://www.mediavida.com/). Additionally, we incorporated 62 of the largest Spanish subreddits from [Reddit](https://www.reddit.com/). 
+For this part of corpus we chose two popular public Spanish forums, [Meneame](https://www.meneame.net/) and [Mediavida](https://www.mediavida.com/). Additionally, we incorporated 51 of the largest Spanish subreddits from [Reddit](https://www.reddit.com/). 
 
 We extracted the following data:
 - 6,796,035 dialogues with 15,185,945 turns from 1,055,796 Reddit posts ([code](https://github.com/conversa-ai/processReddit)),
 - 3,192,173 dialogues with 6,270,915 turns from 216,413 Meneame posts ([code](https://github.com/conversa-ai/processMeneame)),
-- 307,818 dialogues with 683,978 turns from 43,281 Mediavida posts ([code](https://github.com/conversa-ai/processMediavida/tree/main)).
+- 307,818 dialogues with 683,978 turns from 43,281 Mediavida posts ([code](https://github.com/conversa-ai/processMediavida)).
 
 ### Books
 
@@ -36,6 +36,35 @@ Using [software](https://github.com/ricsinaruto/gutenberg-dialog) from [Czaky et
 ### Total 
 
 In total we obtained a corpus of 31,058,130 dialogues and 120,961,102 turns.
+
+## Tools and open access
+We have developed and implemented tools to:
+
+* Collect, clean, and adapt the corpus for large-scale language model training.
+* Track data sources efficiently at scale.
+* Ensure proper processing to meet the technical requirements for LLM training.
+
+The code for the tools is available on Conversa's [github](https://github.com/conversa-ai).
+
+## Bias and Toxicity Mitigation
+To address potential biases and toxic content, we have developed four comprehensive annotation guidelines focused on:
+
+* Sexism
+* Racism
+* Homophobia
+* Aporophobia
+
+These guidelines guide the ongoing work of two annotators who are currently generating datasets with both positive and negative examples of sexism and racism. Although this work is still in progress, the foundational steps have been completed.
+
+### Ethical AI and bias removal
+
+Based on these annotations, we are developing and training models specifically designed to automatically reduce biases in language generation. These models will help ensure the creation of more ethical and accurate content in conversational AI systems.
+
+## Fine-Tuning and Model Optimization
+
+We are in the final stages of fine-tuning large-scale language models (LLMs) using the corpus. Initial results show that this corpus significantly enhances dialogue generation performance. Our fine-tuning process has focused on high-performance open-source models, such as LLaMA 3.1, recognized for its advanced capabilities in natural language understanding and generation.
+
+The ultimate goal is to optimize these models to handle contextually appropriate and linguistically diverse dialogues across the target languages. This fine-tuning process is also designed to reduce biases in response generation, improving both the ethical quality and contextual accuracy of the outputs.
 
 ## Dialogue systems
 
