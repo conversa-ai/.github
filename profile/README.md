@@ -78,3 +78,5 @@ The system is described in the following [paper](https://www.tandfonline.com/doi
 
 1. [Kharitonova, K., Callejas, Z., Pérez-Fernández, D., Gutiérrez-Fandiño, A., & Griol, D. (2023). ChatSubs: A dataset of dialogues in Spanish, Catalan, Basque and Galician extracted from movie subtitles for developing advanced conversational models. Data in Brief, 50, 109565](https://doi.org/https://doi.org/10.1016/j.dib.2023.109565).
 2. [Ksenia Kharitonova, & Griol, D. (2024). Incorporating evidence into mental health Q&A: a novel method to use generative language models for validated clinical content extraction. Behaviour & Information Technology, 1–18](https://doi.org/10.1080/0144929X.2024.2321959).
+
+<img src="logo.png" alt="LOGO" width="500"/>
