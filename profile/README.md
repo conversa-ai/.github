@@ -10,7 +10,7 @@ Apart from corpora we also create both dialogue and QA interactive systems in di
 
 ## Dialogue corpora
 
-We are creating a collection of dialogue corpora in Spanish and co-official languages that is called **Spanish Dialogue Pile** soon to be released. 
+We are creating a collection of dialogue corpora in Spanish and co-official languages that is called **EsCorpiusDialog** soon to be released. 
 
 ### OpenSubtitles
 
