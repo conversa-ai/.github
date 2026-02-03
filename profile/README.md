@@ -1,82 +1,171 @@
-# Conversa project
+# CONVERSA project — EsCorpiusDialog
 
-Access to information is increasingly conversational. However, there is a lack of conversational AI training material for Spanish and the co-official languages, in general and for specific key tasks and domains. Additional barriers include steep computational costs for training conversational agents and challenging inference times, and a lack of guarantees for the safety and transparency of conversational systems. The CONVERSA project (TED2021-132470B-I00) constitutes a step forward to democratize access to conversational AI through computation and data efficient development and testing of innovative, open and safe resources in Spanish and co-official languages. The duration of the project is from December 2022 to November 2024.
+Access to information and services is increasingly conversational. However, there is a shortage of large-scale multi-turn conversational training data for Spanish and Spain’s co-official languages, both for general open-domain dialogue modelling and for downstream conversational applications. Additional barriers include the computational cost of training and the need for safety, transparency, and reproducibility.
 
-Our objective is to increase the availability of resources and models for conversational AI in Spanish, as well as the co-official languages of Spain: Basque, Catalan, and Galician. To achieve this, we have compiled and processed a large-scale conversational corpus containing tens of millions of dialogues in Spanish, Catalan, Basque, and Galician. This corpus represents a valuable resource for the scientific community, as no other comparable resource exists in terms of size, linguistic diversity, and quality.
+The CONVERSA project (TED2021-132470B-I00) contributes open resources and tooling to democratize conversational AI for Spanish, Basque, Catalan, and Galician through data- and computation-efficient development, evaluation, and safety-oriented research. Project duration: December 2022 – November 2024.
 
-Apart from corpora we also create both dialogue and QA interactive systems in diverse domains.
+Project description:
+[Project description](https://drive.google.com/file/d/1nTvVLMz9zb7_VBXHkhmNSTrPmEPvPr3t/view?usp=sharing)
 
-[Project description](https://drive.google.com/file/d/1nTvVLMz9zb7_VBXHkhmNSTrPmEPvPr3t/view?usp=sharing).
+---
 
-## Dialogue corpora
+## EsCorpiusDialog: multilingual multi-turn dialogue corpus
 
-We are creating a collection of dialogue corpora in Spanish and co-official languages that is called **EsCorpiusDialog** soon to be released. 
+EsCorpiusDialog is an open-domain, multi-turn dialogue dataset in Spanish and Spain’s co-official languages (Catalan, Basque, Galician). It aggregates dialogues from:
+- Movie/TV subtitles (OpenSubtitles)
+- Newsgroups (Usenet)
+- Public forums (Menéame, Mediavida, Reddit)
+- Books (Project Gutenberg)
 
-### OpenSubtitles
+The corpus is turn-segmented, with speaker attribution where available (forums + Usenet), and organized into language- and source-specific subsets under a unified schema.
 
-So far, we released **ChatSubs** which is the dialogue corpora in Spanish and co-official languages created from the subtitles of movies and TV series (4 Gb). The corpora is available in [Zenodo](https://zenodo.org/record/8220853) and the code for the corpus creation is available in [our repository](https://github.com/conversa-ai/ChatSubs). The corpora is described in the following [paper](https://www.sciencedirect.com/science/article/pii/S2352340923006650):
+### Public release note: forum data are dehydrated (metadata-only)
+To align redistribution with platform Terms of Service and access policies, the public EsCorpiusDialog release distributes the forums subset in a dehydrated format:
+- No raw forum text is redistributed.
+- The release contains only identifiers and dialogue structure (thread/post IDs and ordered comment IDs defining root-to-leaf dialogue paths).
+- Rehydration scripts are provided to reconstruct text by fetching it from the original platforms using these identifiers, under the user’s own credentials and compliance responsibility.
+
+---
+
+## Corpus scale (paper-aligned statistics)
+
+Total (all sources):
+- Dialogues: 30,518,397
+- Turns: 129,705,492
+- Tokens: 2,187,821,082
+- Avg turns/dialogue: 4.3
+- Total size: 13.8 GB
+
+Language totals:
+- Spanish (es): ~30.2M dialogues
+- Catalan (ca): 92,009 dialogues
+- Basque (eu): 115,796 dialogues
+- Galician (gl): 63,098 dialogues
+
+Source breakdown:
+- OpenSubtitles: 20,254,311 dialogues; 96,887,581 turns; 988,899,395 tokens (4.1 GB)
+  - ca: 91,945 dialogues; 419,620 turns; 5,129,052 tokens
+  - gl: 63,098 dialogues; 284,504 turns; 2,906,273 tokens
+  - eu: 115,796 dialogues; 533,753 turns; 6,104,836 tokens
+  - es: 19,983,472 dialogues; 95,649,704 turns; 974,759,234 tokens
+- Usenet (es): 494,928 dialogues; 1,799,788 turns; 292,366,955 tokens (4.1 GB)
+- Forums (es, rehydrated scale): 9,756,293 dialogues; ~30.9M turns; 903,829,552 tokens (5.6 GB)
+  - Public distribution: dehydrated identifiers + dialogue structure (no text)
+- Gutenberg Dialogue:
+  - Total: 12,865 dialogues; 95,325 turns; 2,725,180 tokens
+  - ca: 64 dialogues; 463 turns; 10,153 tokens
+  - es: 12,801 dialogues; 94,862 turns; 2,715,027 tokens
+
+Notes:
+- “Forums (rehydrated scale)” refers to the approximate size after reconstructing text from platforms; the distributed artifact is dehydrated (ID-only).
+- Speakers are available (recoverable without identity disclosure) for Usenet and forums; OpenSubtitles and Gutenberg do not include speaker attribution.
+
+---
+
+## Source-specific notes and code
+
+### OpenSubtitles (ChatSubs)
+We previously released ChatSubs, a subtitles-derived dialogue corpus in Spanish and co-official languages (Data in Brief, 2023).
+- Data: [Zenodo](https://zenodo.org/record/8220853)
+- Code: [conversa-ai/ChatSubs](https://github.com/conversa-ai/ChatSubs)
 
 ### Usenet
+We processed Spanish-speaking Usenet newsgroups into multi-turn dialogues using message threading (Message-ID / References).
+- Code: [conversa-ai/process_usenet](https://github.com/conversa-ai/process_usenet)
 
-We processed the information contained in newsgroups of Usenet, a decentralized network of user-generated content. Out of 279 Spanish-speaking groups we extracted 494,928 dialogues with 1,799,788 turns. The code for corpus creation is available at the [repository](https://github.com/conversa-ai/process_usenet).
+### Forums (Menéame, Mediavida, Reddit) — dehydrated release + rehydration
+Forum threads are represented as trees (root post + nested replies). Dialogues are extracted as root-to-leaf paths.
+Public release is dehydrated; rehydration scripts reconstruct text by platform access:
 
-### Forums
+- Mediavida rehydration:
+  
+  Repository: [conversa-ai/processMediavida](https://github.com/conversa-ai/processMediavida)
+  
+  Command:
+  ```
+  python3 rehydrate_mediavida.py --input data/mediavida_dialogue_ids_v1.json --output output/mediavida_rehydrated.json --user-agent "esCorpiusDialog-rehydration/1.0 (research; contact: zoraida@ugr.es)" --sleep 1.0 --timeout 30
+  ```
 
-For this part of corpus we chose two popular public Spanish forums, [Meneame](https://www.meneame.net/) and [Mediavida](https://www.mediavida.com/). Additionally, we incorporated 51 of the largest Spanish subreddits from [Reddit](https://www.reddit.com/). 
+- Menéame rehydration:
+  
+  Repository: [conversa-ai/processMeneame](https://github.com/conversa-ai/processMeneame)
+  
+  Command:
+  ```
+  python3 rehydrate_meneame.py --input data/meneame_dialogue_ids_v1.json --output output/meneame_rehydrated.json --user-agent "esCorpiusDialog-rehydration/1.0 (research; contact: zoraida@ugr.es)" --sleep 1.0 --timeout 30 --retries 3 --replace-mentions
+  ```
 
-We extracted the following data:
-- 6,796,035 dialogues with 15,185,945 turns from 1,055,796 Reddit posts ([code](https://github.com/conversa-ai/processReddit)),
-- 3,192,173 dialogues with 6,270,915 turns from 216,413 Meneame posts ([code](https://github.com/conversa-ai/processMeneame)),
-- 307,818 dialogues with 683,978 turns from 43,281 Mediavida posts ([code](https://github.com/conversa-ai/processMediavida)).
+- Reddit rehydration (OAuth):
+  
+  Repository: [conversa-ai/processReddit](https://github.com/conversa-ai/processReddit)
+  
+  Command:
+  ```
+  python3 rehydrate_reddit_dialogues_oauth.py --input data/reddit_dialogue_ids_v1.json --output output/reddit_rehydrated.json --client-id "$REDDIT_CLIENT_ID" --client-secret "$REDDIT_CLIENT_SECRET" --username "$REDDIT_USERNAME" --password "$REDDIT_PASSWORD" --user-agent "esCorpiusDialog-rehydration/1.0 (research; contact: zoraida@ugr.es)" --sleep 1.0 --chunk-size 100 --timeout 30
+  ```
 
-### Books
+Important:
+- Users must comply with each platform’s Terms of Service, robots policies, and API rate limits when rehydrating.
+- The project does not grant additional rights beyond what platforms allow; compliance is the user’s responsibility.
 
-Using [software](https://github.com/ricsinaruto/gutenberg-dialog) from [Czaky et Resky, The Gutenberg dialogue dataset](https://aclanthology.org/2021.eacl-main.11/), we processed the Spanish and Catalan books from the Project Gutenberg internet library. We extracted 64 dialogues with 463 turns for Catalan and 12,801 dialogues with 94,862 turns for Spanish.
+### Books (Project Gutenberg)
+We used the Gutenberg Dialogue extraction pipeline (Csáky & Recski, 2021) to extract Spanish and Catalan dialogue from Gutenberg books.
+- Tooling reference: [ricsinaruto/gutenberg-dialog](https://github.com/ricsinaruto/gutenberg-dialog)
 
-### Total 
-
-In total we obtained a corpus of 31,058,130 dialogues and 120,961,102 turns.
+---
 
 ## Tools and open access
-We have developed and implemented tools to:
+We develop and maintain tools to:
+- collect, normalize, and export dialogue data for LLM training,
+- track data sources at scale and preserve provenance,
+- reproduce the pipeline and enable extension to additional sources/languages.
 
-* Collect, clean, and adapt the corpus for large-scale language model training.
-* Track data sources efficiently at scale.
-* Ensure proper processing to meet the technical requirements for LLM training.
+Code is maintained under the Conversa-AI GitHub organization:
+[conversa-ai](https://github.com/conversa-ai)
 
-The code for the tools is available on Conversa's [github](https://github.com/conversa-ai).
+---
 
-## Bias and Toxicity Mitigation
-To address potential biases and toxic content, we have developed four comprehensive annotation guidelines focused on:
+## Safety and bias: esCorpiusBias (publication P4)
 
-* Sexism
-* Racism
-* Homophobia
-* Aporophobia
+We additionally released esCorpiusBias, a context-aware Spanish forum dataset annotated for sexism and racism/xenophobia, designed to study how conversational context affects toxicity/bias detection.
 
-These guidelines guide the ongoing work of two annotators who are currently generating datasets with both positive and negative examples of sexism and racism. Although this work is still in progress, the foundational steps have been completed.
+Core characteristics:
+- Source: Mediavida forum threads represented as reply trees; dialogues are extracted as root-to-leaf paths.
+- Annotation unit: a 3-turn window (target comment + two preceding turns) to capture context-dependent bias (sarcasm, quotes, escalation).
+- Labels: operational guidelines were developed for sexism, racism/xenophobia, homophobia, and aporophobia; modeling focuses on sexism and racism due to sparsity of the other categories.
+- Dataset size (final annotated benchmarks):
+  - Sexism: 1,001 dialogs (22.1% positive), Cohen’s kappa 0.55
+  - Racism: 989 dialogs (30.2% positive), Cohen’s kappa 0.79
+- Modeling: single-turn vs contextualized variants; baselines include TF–IDF LogReg, SpaCy TextCatBOW, and transformer-based BETO within SpaCy.
 
-### Ethical AI and bias removal
+Citation:
+Kharitonova, K., Pérez-Fernández, D., Gutiérrez-Hernando, J., Gutiérrez-Fandiño, A., Callejas, Z., & Griol, D. (2025).
+EsCorpiusBias: The Contextual Annotation and Transformer-Based Detection of Racism and Sexism in Spanish Dialogue.
+Future Internet, 17(8), 340. https://doi.org/10.3390/fi17080340
 
-Based on these annotations, we are developing and training models specifically designed to automatically reduce biases in language generation. These models will help ensure the creation of more ethical and accurate content in conversational AI systems.
+---
 
-## Fine-Tuning and Model Optimization
+## Dialogue systems and evidence-grounded QA
+We also develop dialogue and QA systems in diverse domains. As a demonstrator, we built an evidence-grounded QA system over clinical guideline content using Retrieval-Augmented Generation (RAG).
 
-We are in the final stages of fine-tuning large-scale language models (LLMs) using the corpus. Initial results show that this corpus significantly enhances dialogue generation performance. Our fine-tuning process has focused on high-performance open-source models, such as LLaMA 3.1, recognized for its advanced capabilities in natural language understanding and generation.
+Paper:
+Kharitonova, K., Pérez-Fernández, D., Gutiérrez-Hernando, J., Gutiérrez-Fandiño, A., Callejas, Z., & Griol, D. (2024).
+Incorporating evidence into mental health Q&A: a novel method to use generative language models for validated clinical content extraction.
+Behaviour & Information Technology. https://doi.org/10.1080/0144929X.2024.2321959
 
-The ultimate goal is to optimize these models to handle contextually appropriate and linguistically diverse dialogues across the target languages. This fine-tuning process is also designed to reduce biases in response generation, improving both the ethical quality and contextual accuracy of the outputs.
-
-## Dialogue systems
-
-We are also actively working on finalizing the development of a robust framework to fine-tune the models to the conversational corpus, optimizing them for various applications that demonstrate their potential. As a key demonstrator of our project, we have developed a question-and-answer system to provide accurate and contextually relevant responses related to clinical guidelines provided by the Aragonese Institute of Health Sciences.
-
-We created a system based on Retrieval-Augmented Generation (RAG) with a Large Language Model (LLM) as a reasoning engine. Our approach serves as a step towards addressing the issues of hallucinated and false responses, as it allows developing explainable question answering systems based on trusted content. ([code]())
-
-The system is described in the following [paper](https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2321959).
+---
 
 ## References
+1. Kharitonova, K., Callejas, Z., Pérez-Fernández, D., Gutiérrez-Fandiño, A., & Griol, D. (2023).
+   ChatSubs: A dataset of dialogues in Spanish, Catalan, Basque and Galician extracted from movie subtitles for developing advanced conversational models.
+   Data in Brief, 50, 109565. https://doi.org/10.1016/j.dib.2023.109565
 
-1. [Kharitonova, K., Callejas, Z., Pérez-Fernández, D., Gutiérrez-Fandiño, A., & Griol, D. (2023). ChatSubs: A dataset of dialogues in Spanish, Catalan, Basque and Galician extracted from movie subtitles for developing advanced conversational models. Data in Brief, 50, 109565](https://doi.org/https://doi.org/10.1016/j.dib.2023.109565).
-2. [Ksenia Kharitonova, & Griol, D. (2024). Incorporating evidence into mental health Q&A: a novel method to use generative language models for validated clinical content extraction. Behaviour & Information Technology, 1–18](https://doi.org/10.1080/0144929X.2024.2321959).
+2. Kharitonova, K., Pérez-Fernández, D., Gutiérrez-Hernando, J., Gutiérrez-Fandiño, A., Callejas, Z., & Griol, D. (2024).
+   Incorporating evidence into mental health Q&A: a novel method to use generative language models for validated clinical content extraction.
+   Behaviour & Information Technology. https://doi.org/10.1080/0144929X.2024.2321959
+
+3. Kharitonova, K., Pérez-Fernández, D., Gutiérrez-Hernando, J., Gutiérrez-Fandiño, A., Callejas, Z., & Griol, D. (2025).
+   EsCorpiusBias: The Contextual Annotation and Transformer-Based Detection of Racism and Sexism in Spanish Dialogue.
+   Future Internet, 17(8), 340. https://doi.org/10.3390/fi17080340
 
 <img src="logo.png" alt="LOGO" width="500"/>
