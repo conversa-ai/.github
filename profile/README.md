@@ -125,7 +125,7 @@ Code is maintained under the Conversa-AI GitHub organization:
 
 ---
 
-## Safety and bias: esCorpiusBias (publication P4)
+## Safety and bias: esCorpiusBias
 
 We additionally released esCorpiusBias, a context-aware Spanish forum dataset annotated for sexism and racism/xenophobia, designed to study how conversational context affects toxicity/bias detection.
 
